@@ -26,7 +26,7 @@ describe('Campaign', function () {
   });
   describe('acceptShareCampaign', function () {
     function responseFn(response) {
-      expect(response).to.have.property();
+      expect(response.lastResponse.statusCode).to.equal(200);
     }
 
     it('Sends the correct request', function () {
@@ -133,7 +133,7 @@ describe('Campaign', function () {
   });
   describe('Get Campaign Operation Status', function () {
     function responseFn(response) {
-      expect(response).to.have.property();
+      expect(response.lastResponse.statusCode).to.equal(200);
     }
     it('Sends the correct request', function () {
       return telnyx.campaign

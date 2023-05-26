@@ -5,6 +5,7 @@ var telnyx = utils.getTelnyxMock();
 var expect = require('chai').expect;
 
 var TEST_AUTH_KEY = utils.getUserTelnyxKey();
+var TEST_UUID = '123e4567-e89b-12d3-a456-426614174000';
 
 describe('numberPortoutsSupportingDocuments', function () {
   describe('list', function () {
@@ -55,14 +56,12 @@ describe('numberPortoutsSupportingDocuments', function () {
     }
 
     it('Sends the correct request', function () {
-      return telnyx.simCardActions
-        .retrieve({id: '6a09cdc3-8948-47f0-aa62-74ac943d6c58'})
-        .then(responseFn);
+      return telnyx.simCardActions.retrieve({id: TEST_UUID}).then(responseFn);
     });
 
     it('Sends the correct request [with specified auth]', function () {
       return telnyx.simCardActions
-        .retrieve({id: '6a09cdc3-8948-47f0-aa62-74ac943d6c58'}, TEST_AUTH_KEY)
+        .retrieve({id: TEST_UUID}, TEST_AUTH_KEY)
         .then(responseFn);
     });
   });

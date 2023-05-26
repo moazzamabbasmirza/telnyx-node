@@ -5,6 +5,7 @@ var telnyx = utils.getTelnyxMock();
 var expect = require('chai').expect;
 
 var TEST_AUTH_KEY = utils.getUserTelnyxKey();
+var TEST_UUID = '123e4567-e89b-12d3-a456-426614174000';
 
 describe('Access IP Ranges Resource', function () {
   describe('list', function () {
@@ -86,7 +87,7 @@ describe('Access IP Ranges Resource', function () {
     it('Sends the correct request', function () {
       return telnyx.roomSessions
         .retrieveRoomSessionId({
-          room_session_id: 'room_session_id',
+          room_session_id: TEST_UUID,
         })
         .then(responseFn);
     });
@@ -95,7 +96,7 @@ describe('Access IP Ranges Resource', function () {
       return telnyx.roomSessions
         .retrieveRoomSessionId(
           {
-            room_session_id: 'room_session_id',
+            room_session_id: TEST_UUID,
           },
           TEST_AUTH_KEY
         )
@@ -111,7 +112,7 @@ describe('Access IP Ranges Resource', function () {
     it('Sends the correct request', function () {
       return telnyx.roomSessions
         .muteSession({
-          room_session_id: 'room_session_id',
+          room_session_id: TEST_UUID,
         })
         .then(responseFn);
     });
@@ -120,7 +121,7 @@ describe('Access IP Ranges Resource', function () {
       return telnyx.roomSessions
         .muteSession(
           {
-            room_session_id: 'room_session_id',
+            room_session_id: TEST_UUID,
           },
           TEST_AUTH_KEY
         )
@@ -135,7 +136,7 @@ describe('Access IP Ranges Resource', function () {
     it('Sends the correct request', function () {
       return telnyx.roomSessions
         .unmuteSession({
-          room_session_id: 'room_session_id',
+          room_session_id: TEST_UUID,
         })
         .then(responseFn);
     });
@@ -144,7 +145,7 @@ describe('Access IP Ranges Resource', function () {
       return telnyx.roomSessions
         .unmuteSession(
           {
-            room_session_id: 'room_session_id',
+            room_session_id: TEST_UUID,
           },
           TEST_AUTH_KEY
         )
@@ -159,7 +160,7 @@ describe('Access IP Ranges Resource', function () {
     it('Sends the correct request', function () {
       return telnyx.roomSessions
         .kickParticipant({
-          room_session_id: 'room_session_id',
+          room_session_id: TEST_UUID,
         })
         .then(responseFn);
     });
@@ -168,7 +169,7 @@ describe('Access IP Ranges Resource', function () {
       return telnyx.roomSessions
         .kickParticipant(
           {
-            room_session_id: 'room_session_id',
+            room_session_id: TEST_UUID,
           },
           TEST_AUTH_KEY
         )
@@ -183,7 +184,7 @@ describe('Access IP Ranges Resource', function () {
     it('Sends the correct request', function () {
       return telnyx.roomSessions
         .retrieveParticipants({
-          room_session_id: 'room_session_id',
+          room_session_id: TEST_UUID,
         })
         .then(responseFn);
     });
@@ -192,7 +193,7 @@ describe('Access IP Ranges Resource', function () {
       return telnyx.roomSessions
         .retrieveParticipants(
           {
-            room_session_id: 'room_session_id',
+            room_session_id: TEST_UUID,
           },
           TEST_AUTH_KEY
         )
@@ -207,7 +208,7 @@ describe('Access IP Ranges Resource', function () {
     it('Sends the correct request', function () {
       return telnyx.roomSessions
         .endSession({
-          room_session_id: 'room_session_id',
+          room_session_id: TEST_UUID,
         })
         .then(responseFn);
     });
@@ -216,7 +217,7 @@ describe('Access IP Ranges Resource', function () {
       return telnyx.roomSessions
         .endSession(
           {
-            room_session_id: 'room_session_id',
+            room_session_id: TEST_UUID,
           },
           TEST_AUTH_KEY
         )

@@ -5,6 +5,7 @@ var telnyx = utils.getTelnyxMock();
 var expect = require('chai').expect;
 
 var TEST_AUTH_KEY = utils.getUserTelnyxKey();
+var TEST_UUID = '123e4567-e89b-12d3-a456-426614174000';
 
 describe('roomParticipants', function () {
   describe('list', function () {
@@ -82,13 +83,13 @@ describe('roomParticipants', function () {
 
     it('Sends the correct request', function () {
       return telnyx.roomParticipants
-        .retrieve({room_participant_id: 'room_participant_id'})
+        .retrieve({room_participant_id: TEST_UUID})
         .then(responseFn);
     });
 
     it('Sends the correct request [with specified auth]', function () {
       return telnyx.roomParticipants
-        .retrieve({room_participant_id: 'room_participant_id'}, TEST_AUTH_KEY)
+        .retrieve({room_participant_id: TEST_UUID}, TEST_AUTH_KEY)
         .then(responseFn);
     });
   });

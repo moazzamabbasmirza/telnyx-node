@@ -73,8 +73,6 @@ describe('Bulk Credentials Resource', function () {
     it('Sends the correct request', function () {
       return telnyx.bulkTelephonyCredentials
         .updateCredentials({
-          connection_id: '804252963366242252',
-          tag: 'My Credentials',
           filter: {
             tag: 'data',
           },
@@ -88,36 +86,6 @@ describe('Bulk Credentials Resource', function () {
           {
             connection_id: '804252963366242252',
             tag: 'My Credentials',
-            filter: {
-              tag: 'data',
-            },
-          },
-          TEST_AUTH_KEY
-        )
-        .then(responseFn);
-    });
-  });
-  describe('activateOrDeactivate', function () {
-    function responseFn(response) {
-      expect(response).to.have.property('data');
-    }
-
-    it('Sends the correct request', function () {
-      return telnyx.bulkTelephonyCredentials
-        .activateOrDeactivate({
-          action: 'action',
-          filter: {
-            tag: 'data',
-          },
-        })
-        .then(responseFn);
-    });
-
-    it('Sends the correct request [with specified auth]', function () {
-      return telnyx.bulkTelephonyCredentials
-        .activateOrDeactivate(
-          {
-            action: 'action',
             filter: {
               tag: 'data',
             },

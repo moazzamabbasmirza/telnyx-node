@@ -5,6 +5,7 @@ var telnyx = utils.getTelnyxMock();
 var expect = require('chai').expect;
 
 var TEST_AUTH_KEY = utils.getUserTelnyxKey();
+var TEST_UUID = '123e4567-e89b-12d3-a456-426614174000';
 
 describe('Whatsapp Business Account', function () {
   describe('list', function () {
@@ -45,7 +46,7 @@ describe('Whatsapp Business Account', function () {
     it('Sends the correct request', function () {
       return telnyx.whatsAppBusinessAccount
         .retrieveWhatsAppBusinessAccount({
-          id: '2ade33a-21c0-473b-b055-b3c836e1c292',
+          id: TEST_UUID,
         })
         .then(responseFn);
     });
@@ -54,7 +55,7 @@ describe('Whatsapp Business Account', function () {
       return telnyx.whatsAppBusinessAccount
         .retrieveWhatsAppBusinessAccount(
           {
-            id: '2ade33a-21c0-473b-b055-b3c836e1c292',
+            id: TEST_UUID,
           },
           TEST_AUTH_KEY
         )
@@ -69,7 +70,7 @@ describe('Whatsapp Business Account', function () {
     it('Sends the correct request', function () {
       return telnyx.whatsAppBusinessAccount
         .retrieveWhatsAppBusinessAccountPhoneNumbers({
-          id: '2ade33a-21c0-473b-b055-b3c836e1c292',
+          id: TEST_UUID,
         })
         .then(responseFn);
     });
@@ -78,7 +79,7 @@ describe('Whatsapp Business Account', function () {
       return telnyx.whatsAppBusinessAccount
         .retrieveWhatsAppBusinessAccountPhoneNumbers(
           {
-            id: '2ade33a-21c0-473b-b055-b3c836e1c292',
+            id: TEST_UUID,
           },
           TEST_AUTH_KEY
         )

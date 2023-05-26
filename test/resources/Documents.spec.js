@@ -5,6 +5,7 @@ var telnyx = utils.getTelnyxMock();
 var expect = require('chai').expect;
 
 var TEST_AUTH_KEY = utils.getUserTelnyxKey();
+var TEST_UUID = '123e4567-e89b-12d3-a456-426614174000';
 
 describe('Documents', function () {
   describe('list', function () {
@@ -72,21 +73,12 @@ describe('Documents', function () {
       expect(response).to.have.property('data');
     }
     it('Sends the correct request', function () {
-      return telnyx.documents
-        .retrieveDocumentId({
-          id: '6a09cdc3-8948-47f0-aa62-74ac943d6c58',
-        })
-        .then(responseFn);
+      return telnyx.documents.retrieveDocumentId(TEST_UUID).then(responseFn);
     });
 
     it('Sends the correct request [with specified auth]', function () {
       return telnyx.documents
-        .retrieveDocumentId(
-          {
-            id: '6a09cdc3-8948-47f0-aa62-74ac943d6c58',
-          },
-          TEST_AUTH_KEY
-        )
+        .retrieveDocumentId(TEST_UUID, TEST_AUTH_KEY)
         .then(responseFn);
     });
   });
@@ -96,20 +88,13 @@ describe('Documents', function () {
     }
     it('Sends the correct request', function () {
       return telnyx.documents
-        .retrieveDownloadDocument({
-          id: '6a09cdc3-8948-47f0-aa62-74ac943d6c58',
-        })
+        .retrieveDownloadDocument(TEST_UUID)
         .then(responseFn);
     });
 
     it('Sends the correct request [with specified auth]', function () {
       return telnyx.documents
-        .retrieveDownloadDocument(
-          {
-            id: '6a09cdc3-8948-47f0-aa62-74ac943d6c58',
-          },
-          TEST_AUTH_KEY
-        )
+        .retrieveDownloadDocument(TEST_UUID, TEST_AUTH_KEY)
         .then(responseFn);
     });
   });
@@ -118,22 +103,11 @@ describe('Documents', function () {
       expect(response).to.have.property('data');
     }
     it('Sends the correct request', function () {
-      return telnyx.documents
-        .update({
-          id: '6a09cdc3-8948-47f0-aa62-74ac943d6c58',
-        })
-        .then(responseFn);
+      return telnyx.documents.update(TEST_UUID).then(responseFn);
     });
 
     it('Sends the correct request [with specified auth]', function () {
-      return telnyx.documents
-        .update(
-          {
-            id: '6a09cdc3-8948-47f0-aa62-74ac943d6c58',
-          },
-          TEST_AUTH_KEY
-        )
-        .then(responseFn);
+      return telnyx.documents.update(TEST_UUID, TEST_AUTH_KEY).then(responseFn);
     });
   });
   describe('upload', function () {
@@ -164,22 +138,11 @@ describe('Documents', function () {
       expect(response).to.have.property('data');
     }
     it('Sends the correct request', function () {
-      return telnyx.documents
-        .del({
-          id: '6a09cdc3-8948-47f0-aa62-74ac943d6c58',
-        })
-        .then(responseFn);
+      return telnyx.documents.del(TEST_UUID).then(responseFn);
     });
 
     it('Sends the correct request [with specified auth]', function () {
-      return telnyx.documents
-        .del(
-          {
-            id: '6a09cdc3-8948-47f0-aa62-74ac943d6c58',
-          },
-          TEST_AUTH_KEY
-        )
-        .then(responseFn);
+      return telnyx.documents.del(TEST_UUID, TEST_AUTH_KEY).then(responseFn);
     });
   });
 });

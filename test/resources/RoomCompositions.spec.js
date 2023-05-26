@@ -5,6 +5,7 @@ var telnyx = utils.getTelnyxMock();
 var expect = require('chai').expect;
 
 var TEST_AUTH_KEY = utils.getUserTelnyxKey();
+var TEST_UUID = '123e4567-e89b-12d3-a456-426614174000';
 
 describe('Access IP Ranges Resource', function () {
   describe('list', function () {
@@ -76,14 +77,12 @@ describe('Access IP Ranges Resource', function () {
     }
 
     it('Sends the correct request', function () {
-      return telnyx.roomCompositions
-        .del({room_composition_id: 'room_composition_id'})
-        .then(responseFn);
+      return telnyx.roomCompositions.del(TEST_UUID).then(responseFn);
     });
 
     it('Sends the correct request [with specified auth]', function () {
       return telnyx.roomCompositions
-        .del({room_composition_id: 'room_composition_id'}, TEST_AUTH_KEY)
+        .del(TEST_UUID, TEST_AUTH_KEY)
         .then(responseFn);
     });
   });
@@ -93,14 +92,12 @@ describe('Access IP Ranges Resource', function () {
     }
 
     it('Sends the correct request', function () {
-      return telnyx.roomCompositions
-        .retrieve({room_composition_id: 'room_composition_id'})
-        .then(responseFn);
+      return telnyx.roomCompositions.retrieve(TEST_UUID).then(responseFn);
     });
 
     it('Sends the correct request [with specified auth]', function () {
       return telnyx.roomCompositions
-        .retrieve({room_composition_id: 'room_composition_id'}, TEST_AUTH_KEY)
+        .retrieve(TEST_UUID, TEST_AUTH_KEY)
         .then(responseFn);
     });
   });
